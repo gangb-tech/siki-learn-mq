@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4ea34595-2261-4784-b280-e2f68776e65b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../siki-learn-message-handle/siki-learn-message-handle.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../siki-learn-message/siki-learn-message.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workspace/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workspace/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workspace/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workspace/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workspace/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workspace/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workspace/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1hd6HztaVEg8jHhFBCF3m9ddwNt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4ea34595-2261-4784-b280-e2f68776e65b" name="Default Changelist" comment="" />
+      <created>1600328537067</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600328537067</updated>
+    </task>
+    <servers />
+  </component>
+</project>

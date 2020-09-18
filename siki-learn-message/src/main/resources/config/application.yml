@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: siki-learn-message
+  profiles:
+    active: local
+
+
+info:
+  name: '@project.artifactId@'
+  version: '@project.version@'

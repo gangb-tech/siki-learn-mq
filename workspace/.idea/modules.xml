@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../siki-learn-message/siki-learn-message.iml" filepath="$PROJECT_DIR$/../siki-learn-message/siki-learn-message.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../siki-learn-message-handle/siki-learn-message-handle.iml" filepath="$PROJECT_DIR$/../siki-learn-message-handle/siki-learn-message-handle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../siki-learn-message-interface/siki-learn-message-interface.iml" filepath="$PROJECT_DIR$/../siki-learn-message-interface/siki-learn-message-interface.iml" />
+    </modules>
+  </component>
+</project>
