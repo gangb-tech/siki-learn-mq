@@ -1,5 +1,4 @@
-# siki-learn-mq
-siki学院 消息队列实战
+###  siki-learn-mq  ----  siki学院 消息队列实战
 
 
 ## siki-learn-message 
@@ -8,8 +7,11 @@ siki学院 消息队列实战
 
 ## siki-learn-message-interface
 
-- 提供消息系统对外暴露接口
+- 提供消息系统对外暴露接口项目
 
 ## siki-learn-message-handle
 
-- 系统消息系统消息能力发送
+- 系统消息系统消息能力路由发送服务
+
+
+
