@@ -1,0 +1,85 @@
+***********************************************************************
+
+实战部分     通用消息系统
+
+***********************************************************************
+
+需要集成能力 短信、邮件、app、等等消息异步，批量发送能力
+
+
+-----------------------------------------------------------------------
+
+通用实现、对外封装消息发送的细节、单一接口实现多种消息的发送能力
+抽象各种消息通道类型，统一通过配置实现不同消息通道的智能路由
+
+
+整个消息系统可独立部署   亦可整合到我们小黑板微服务系统中，因为我们这个课程其实是我们
+小黑板系统的一个分支课程，因为我们cloud的小黑板课程中需要使用到验证码发送服务，需要调用到
+我们的消息服务，然后顺便出一个mq的中间件实战课程
+
+
+
+
+设计一下我们消息系统的整个架构
+
+
+
+1、创建三个项目 siki-learn-message 、 siki-learn-message-interface  和  siki-learn-message-handle
+
+siki-learn-message  消息系统管理服务
+
+siki-learn-message-interface 消息系统对外接口项目
+
+siki-learn-message-handle 消息系统消息能力发送服务
+
+
+2、我们先来设计一些我们系统的数据表结构
+
+CREATE TABLE t_message_channel(
+  id BIGINT(20) UNSIGNED PRIMARY KEY comment '消息通道id',
+  channel_no VARCHAR(32) NOT NULL comment '消息通道编号',
+  name VARCHAR(32) NOT NULL UNIQUE comment '消息通道名称',
+  type TINYINT UNSIGNED NOT NULL comment '消息通道类型 0-短信,1-邮件,2-即时通讯',
+  is_batch TINYINT UNSIGNED NOT NULL comment '是否支持批量发送，0-支持，1-不支持',
+  status TINYINT UNSIGNED NOT NULL default 1 comment '消息通道状态 0-上线,1-下线',
+  template_range TINYINT UNSIGNED NOT NULL comment '模板类型，0-内部模板,1-外部模板, ',
+  match_templates VARCHAR(32) comment '适用模板类型-内部模板必须 数组 ; 分隔',
+  limited_str INT UNSIGNED NOT NULL comment '内容限制长度',
+  mark VARCHAR(255) comment '描述',
+  create_time  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  update_time  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+
+
+CREATE TABLE t_message_template(
+  id BIGINT(20) UNSIGNED PRIMARY KEY comment '消息模板id' ,
+  name VARCHAR(32) NOT NULL UNIQUE comment '消息模板名称',
+  type TINYINT UNSIGNED NOT NULL comment '消息模板类型 0-字符，1-HTML',
+  content VARCHAR(10000) NOT NULL comment '消息模板内容',
+  status TINYINT UNSIGNED NOT NULL comment '消息模板状态',
+  params VARCHAR(255) NOT NULL comment '消息模板参数',
+  mark VARCHAR(255) comment '描述',
+  create_time  timestamp  NOT NULL default current_timestamp,
+  update_time  timestamp  NOT NULL default current_timestamp
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE m_message_order(
+  id BIGINT(20) UNSIGNED PRIMARY KEY comment '消息订单号' ,
+  message_no VARCHAR(32)  NOT NULL comment '上游消息编号',
+  serial_num VARCHAR(64)  NOT NULL comment '流水号-可能下游有规则要求',
+  channel_id BIGINT(20) UNSIGNED comment '消息通道编号',
+  template_id VARCHAR(64) comment '模板号-外部或内部',
+  target VARCHAR(10000) NOT NULL comment '发送目标地址',
+  notic_addr VARCHAR(1024) comment '结果通知地址',
+  notic_status TINYINT UNSIGNED NOT NULL default 0 comment '消息发送结果 0-pendding，1-success，2-faile',
+  result TINYINT UNSIGNED NOT NULL comment '消息发送结果 0-init，1-sending，2-sended 3-faile，4-success',
+  mark VARCHAR(1024) comment '描述',
+  create_time  timestamp   NOT NULL default current_timestamp comment '创建时间',
+  update_time  timestamp   NOT NULL default current_timestamp comment '更新时间'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE t_message_consume(
+  id BIGINT(20) UNSIGNED PRIMARY KEY
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -1,0 +1,52 @@
+******************************************** 安装docker-compose  *********************************************
+
+1、下载docker-compose 二进制包
+
+https://github.com/docker/compose/releases/tag/1.26.2
+
+docker-compose-Linux-x86_64
+
+
+2、传到linux机器
+
+/usr/local/bin 目录
+
+重命名为 mv []   docker-compose
+
+赋予权限  sudo chmod +x docker-compose
+
+
+3、检查安装
+
+docker-compose -v
+
+
+
+********************************************* 搭建rocketmq **********************************
+
+
+1、下载开源部署配置
+
+
+https://github.com/foxiswho/docker-rocketmq
+
+
+
+2、修改broker ip地址
+
+/root/deploy/docker-rocketmq-master/rmq/rmq/brokerconf
+
+
+brokerIP1=192.168.75.130
+
+
+3、通过docker-compose 启动
+
+
+./start.sh
+
+分别启  rmqbroker   rmqnamesrv   rmqconsole  3个容器
+
+
+访问http://192.168.75.130:8180/ 可以看到rocketmq控制面板
+
